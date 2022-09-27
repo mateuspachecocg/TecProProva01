@@ -1,5 +1,7 @@
 package salao;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -23,8 +25,39 @@ public class Main {
 		Agendamento agendamento1 = new Agendamento(cl1, cabelereiro1);
 		Agendamento agendamento2 = new Agendamento(cl2, cabelereiro2);
 		Agendamento agendamento3 = new Agendamento(cl3, cabelereiro3);
+		
+		
+		// Criando interface de cadastro
+		int control = -1;
+		while(control != 0) {
+			
+		}
 	
 	
+	}
+	
+	public static void menuDeCadastro() {
+		System.out.println("ESCOLHA UMA OPCAO:");
+		System.out.println("ESCOLHA UMA OPCAO:");
+		System.out.println("ESCOLHA UMA OPCAO:");
+		System.out.println("ESCOLHA UMA OPCAO:");
+		System.out.println("ESCOLHA UMA OPCAO:");
+		System.out.println("ESCOLHA UMA OPCAO:");
+		System.out.println("ESCOLHA UMA OPCAO:");
+		
+	}
+	
+	public static Cliente cadastrarCliente() {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("INFORME O NOME DO CLIENTE:");
+		String nome = input.nextLine();
+		System.out.println("INFORME O CPF DO CLIENTE:");
+		String cpf= input.nextLine();
+		
+		
+		
+		return null;
 	}
 
 }
