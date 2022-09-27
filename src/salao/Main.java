@@ -28,22 +28,28 @@ public class Main {
 		
 		
 		// Criando interface de cadastro
+		Scanner inputPrincipal = new Scanner(System.in);
 		int control = -1;
 		while(control != 0) {
+			menuPrincipal();
+			control = inputPrincipal.nextInt();
+			switch(control) {
 			
+			}
 		}
 	
-	
+		inputPrincipal.close();
 	}
 	
-	public static void menuDeCadastro() {
-		System.out.println("ESCOLHA UMA OPCAO:");
-		System.out.println("ESCOLHA UMA OPCAO:");
-		System.out.println("ESCOLHA UMA OPCAO:");
-		System.out.println("ESCOLHA UMA OPCAO:");
-		System.out.println("ESCOLHA UMA OPCAO:");
-		System.out.println("ESCOLHA UMA OPCAO:");
-		System.out.println("ESCOLHA UMA OPCAO:");
+	public static void menuPrincipal() {
+		System.out.println("------------------------- ESCOLHA UMA OPCAO -------------------------");
+		System.out.println("1 - CADASTRAR CLIENTE");
+		System.out.println("2 - CADASTRAR CABELEREIRO");
+		System.out.println("3 - CADASTRAR SERVICO");
+		System.out.println("4 - CADASTRAR ATENDIMENTO");
+		System.out.println("5 - CADASTRAR AGENDAMENTO");
+		System.out.println("0 - PARA SAIR DO PROGRAMA");
+		System.out.print("ESCOLHA:");
 		
 	}
 	
@@ -55,7 +61,7 @@ public class Main {
 		System.out.println("INFORME O CPF DO CLIENTE:");
 		String cpf= input.nextLine();
 		
-		
+		input.close();
 		
 		return null;
 	}
