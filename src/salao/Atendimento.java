@@ -12,4 +12,30 @@ public class Atendimento {
 		this.cliente = cliente;
 		this.data = Calendar.getInstance();
 	}
+
+	public Servico[] getServico() {
+		return servico;
+	}
+
+	public void setServico(Servico[] servico) {
+		this.servico = servico;
+	}
+
+	public Cabelereiro getCabelereiro() {
+		return cabelereiro;
+	}
+
+	public void setCabelereiro(Cabelereiro cabelereiro) {
+		this.cabelereiro = cabelereiro;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public Calendar getData() {
+		return data;
+	}
+	
+	
 }

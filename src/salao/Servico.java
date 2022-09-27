@@ -13,13 +13,19 @@ public class Servico {
 		return id;
 	}
 	public void setId(int id) {
-		this.id = id;
+		if (id > 0)
+			this.id = id;
+		else 
+			System.out.println("Valor informado menor que zero.");
 	}
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		if(nome.length() > 4)
+			this.nome = nome;
+		else
+			System.out.println("Tamanho de nome invalido.");
 	}
 	public double getValor() {
 		return valor;
@@ -31,7 +37,10 @@ public class Servico {
 		return descricao;
 	}
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+		if(descricao.length() > 4)
+			this.descricao= descricao;
+		else
+			System.out.println("Tamanho de descricao invalido.");
 	}
 	
 	
