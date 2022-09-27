@@ -28,13 +28,32 @@ public class Main {
 		
 		
 		// Criando interface de cadastro
+		
+	
 		Scanner inputPrincipal = new Scanner(System.in);
 		int control = -1;
 		while(control != 0) {
 			menuPrincipal();
 			control = inputPrincipal.nextInt();
 			switch(control) {
-			
+				case 1:
+					cadastrarCliente();
+					break;
+				case 2:
+					cadastrarCabelereiro();
+					break;
+				case 3:
+					cadastrarServico();
+					break;
+				case 4:
+					cadastrarAtendimento();
+					break;
+				case 5:
+					cadastrarAgendamento();
+					break;
+				case 0:
+					control = 0;
+					break;
 			}
 		}
 	
@@ -51,6 +70,41 @@ public class Main {
 		System.out.println("0 - PARA SAIR DO PROGRAMA");
 		System.out.print("ESCOLHA:");
 		
+	}
+	
+	public static Cliente cadastrarAgendamento() {
+		Scanner input = new Scanner(System.in);
+		
+		
+		input.close();
+		
+		return null;
+	}
+	
+	public static Cliente cadastrarAtendimento() {
+		Scanner input = new Scanner(System.in);
+		
+		
+		input.close();
+		
+		return null;
+	}
+	
+	public static Cliente cadastrarServico() {
+		Scanner input = new Scanner(System.in);
+		
+		
+		input.close();
+		
+		return null;
+	}
+	
+	public static Cliente cadastrarCabelereiro() {
+		Scanner input = new Scanner(System.in);
+		
+		input.close();
+		
+		return null;
 	}
 	
 	public static Cliente cadastrarCliente() {
