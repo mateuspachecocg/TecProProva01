@@ -1,24 +1,41 @@
 package salao;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Atendimento {
 	private Cliente cliente;
 	private Calendar data;
-	private Servico servico[];
+	private ArrayList<Servico> servicos;
 	private Cabelereiro cabelereiro;
+
+	public Atendimento() {
+		super();
+	}
 	
+	
+	
+	
+	public Atendimento(Cliente cliente, Cabelereiro cabelereiro) {
+		super();
+		this.cliente = cliente;
+		this.cabelereiro = cabelereiro;
+	}
+
+
+
+
 	public Atendimento(Cliente cliente) {
 		this.cliente = cliente;
 		this.data = Calendar.getInstance();
 	}
 
-	public Servico[] getServico() {
-		return servico;
+	public ArrayList<Servico> getServico() {
+		return servicos;
 	}
 
-	public void setServico(Servico[] servico) {
-		this.servico = servico;
+	public void addServico(Servico servico) {
+		servicos.add(servico);
 	}
 
 	public Cabelereiro getCabelereiro() {

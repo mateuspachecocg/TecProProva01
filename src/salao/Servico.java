@@ -9,6 +9,17 @@ public class Servico {
 	public Servico () {
 		
 	}
+	
+	
+	public Servico(int id, String nome, double valor, String descricao) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.valor = valor;
+		this.descricao = descricao;
+	}
+
+
 	public int getId() {
 		return id;
 	}
