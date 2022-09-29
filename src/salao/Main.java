@@ -1,4 +1,5 @@
 package salao;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,9 +34,8 @@ public class Main {
 		Agendamento agendamento2 = new Agendamento(cl2, cabelereiro2);
 		Agendamento agendamento3 = new Agendamento(cl3, cabelereiro3);
 
-
 		// Criando interface de cadastro
-		
+
 		int control = 1;
 		while (control != 0) {
 			menuPrincipal();
@@ -64,41 +64,62 @@ public class Main {
 
 		inputPrincipal.close();
 	}
-	
+
 	// PART B: QUESTION 01
 	public static double calcValorAPagar(Cliente c, Atendimento atendimento) {
 		double valorAPagar = 0;
 		for (Servico serv : atendimento.getServico()) {
 			valorAPagar += serv.getValor();
 		}
-		
+
 		return valorAPagar;
 	}
-	
+
 	// PART B: QUESTION 02
 	public static int numberRequestedServices(int id) {
 		int numberResquestedServices = 0;
 		for (Atendimento atendimento : listAtendimento) {
-			if(atendimento.getCliente().getId() == id) {
+			if (atendimento.getCliente().getId() == id) {
 				numberResquestedServices += atendimento.getServico().size();
 			}
 		}
 		return numberResquestedServices;
 	}
-	
+
 	// PART B: QUESTION 03
 	public static boolean haveClienteEqualCabelereiroName() {
 		boolean testResult = true;
 		for (Cliente cliente : listCliente) {
-			for(Cabelereiro cabelereiro : listCabelereiro) {
+			for (Cabelereiro cabelereiro : listCabelereiro) {
 				testResult = testResult && !(cliente.getNome().equals(cabelereiro.getNome()));
 			}
 		}
-		
-		
-		return false;
+		return testResult;
 	}
-	
+
+	// PART B: QUESTION 04
+	public static String whoIsTheSpender() {
+
+		String name = "";
+		Double mostWasted = -1.0;
+		Double wastedWithServices;
+
+		for (Cliente cliente : listCliente) {
+			wastedWithServices = 0.0;
+			for (Atendimento atendimento : listAtendimento) {
+				if (atendimento.getCliente().getId() == cliente.getId()) {
+					wastedWithServices += calcValorAPagar(cliente, atendimento);
+				}
+			}
+
+			if (wastedWithServices > mostWasted) {
+				mostWasted = wastedWithServices;
+				name = cliente.getNome();
+			}
+		}
+		return name;
+	}
+
 	public static void menuPrincipal() {
 		System.out.println("------------------------- ESCOLHA UMA OPCAO -------------------------");
 		System.out.println("1 - CADASTRAR CLIENTE");
@@ -119,7 +140,7 @@ public class Main {
 		System.out.print("\nID DO CABELEREIRO:");
 		int idCabelereiro = Integer.parseInt(inputPrincipal.nextLine());
 		// Pedir a data
-		
+
 		listAgendamento.add(new Agendamento(listCliente.get(idCliente), listCabelereiro.get(idCabelereiro)));
 	}
 
@@ -129,14 +150,14 @@ public class Main {
 		int idCliente = Integer.parseInt(inputPrincipal.nextLine());
 		System.out.print("\nID DO CABELEREIRO:");
 		int idCabelereiro = Integer.parseInt(inputPrincipal.nextLine());
-		
+
 		Atendimento novoAtendimento = new Atendimento(listCliente.get(idCliente), listCabelereiro.get(idCabelereiro));
-		
+
 		System.out.print("\nQUANTOS SERVICOS SERAO REALIZADOS:");
 		int quantServicos = Integer.parseInt(inputPrincipal.nextLine());
-		for(int i = 0;i < quantServicos;i++) {
-			System.out.printf("\nID DO %d° SERVICO:", i+1);
-			int id= Integer.parseInt(inputPrincipal.nextLine());
+		for (int i = 0; i < quantServicos; i++) {
+			System.out.printf("\nID DO %d° SERVICO:", i + 1);
+			int id = Integer.parseInt(inputPrincipal.nextLine());
 			novoAtendimento.addServico(listServico.get(id));
 		}
 
@@ -162,7 +183,7 @@ public class Main {
 		String nome = inputPrincipal.nextLine();
 		System.out.println("CPF DO CABELEREIRO:");
 		String cpf = inputPrincipal.nextLine();
-		
+
 		listCabelereiro.add(new Cabelereiro(nome, cpf));
 	}
 
