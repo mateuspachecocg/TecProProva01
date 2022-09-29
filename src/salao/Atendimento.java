@@ -13,17 +13,12 @@ public class Atendimento {
 		super();
 	}
 	
-	
-	
-	
 	public Atendimento(Cliente cliente, Cabelereiro cabelereiro) {
 		super();
 		this.cliente = cliente;
 		this.cabelereiro = cabelereiro;
+		this.servicos = new ArrayList<Servico>();
 	}
-
-
-
 
 	public Atendimento(Cliente cliente) {
 		this.cliente = cliente;

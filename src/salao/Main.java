@@ -1,12 +1,11 @@
 package salao;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 	public static Scanner inputPrincipal = new Scanner(System.in);
 	// Criando a persistência de dados
-	public static ArrayList<Cliente> listClientes = new ArrayList<Cliente>();
+	public static ArrayList<Cliente> listCliente = new ArrayList<Cliente>();
 	public static ArrayList<Cabelereiro> listCabelereiro = new ArrayList<Cabelereiro>();
 	public static ArrayList<Servico> listServico = new ArrayList<Servico>();
 	public static ArrayList<Atendimento> listAtendimento = new ArrayList<Atendimento>();
@@ -65,7 +64,41 @@ public class Main {
 
 		inputPrincipal.close();
 	}
-
+	
+	// PART B: QUESTION 01
+	public static double calcValorAPagar(Cliente c, Atendimento atendimento) {
+		double valorAPagar = 0;
+		for (Servico serv : atendimento.getServico()) {
+			valorAPagar += serv.getValor();
+		}
+		
+		return valorAPagar;
+	}
+	
+	// PART B: QUESTION 02
+	public static int numberRequestedServices(int id) {
+		int numberResquestedServices = 0;
+		for (Atendimento atendimento : listAtendimento) {
+			if(atendimento.getCliente().getId() == id) {
+				numberResquestedServices += atendimento.getServico().size();
+			}
+		}
+		return numberResquestedServices;
+	}
+	
+	// PART B: QUESTION 03
+	public static boolean haveClienteEqualCabelereiroName() {
+		boolean testResult = true;
+		for (Cliente cliente : listCliente) {
+			for(Cabelereiro cabelereiro : listCabelereiro) {
+				testResult = testResult && !(cliente.getNome().equals(cabelereiro.getNome()));
+			}
+		}
+		
+		
+		return false;
+	}
+	
 	public static void menuPrincipal() {
 		System.out.println("------------------------- ESCOLHA UMA OPCAO -------------------------");
 		System.out.println("1 - CADASTRAR CLIENTE");
@@ -85,12 +118,9 @@ public class Main {
 		int idCliente = Integer.parseInt(inputPrincipal.nextLine());
 		System.out.print("\nID DO CABELEREIRO:");
 		int idCabelereiro = Integer.parseInt(inputPrincipal.nextLine());
-		System.out.print("\nHORA DO AGENDAMENTO:");
-		int hora = Integer.parseInt(inputPrincipal.nextLine());
-		System.out.print("\nMINUTO DO AGENDAMENTO:");
-		int minuto = Integer.parseInt(inputPrincipal.nextLine());
+		// Pedir a data
 		
-		listAgendamento.add(new Agendamento(listClientes.get(idCliente), hora, minuto, listCabelereiro.get(idCabelereiro)));
+		listAgendamento.add(new Agendamento(listCliente.get(idCliente), listCabelereiro.get(idCabelereiro)));
 	}
 
 	public static void cadastrarAtendimento() {
@@ -100,7 +130,7 @@ public class Main {
 		System.out.print("\nID DO CABELEREIRO:");
 		int idCabelereiro = Integer.parseInt(inputPrincipal.nextLine());
 		
-		Atendimento novoAtendimento = new Atendimento(listClientes.get(idCliente), listCabelereiro.get(idCabelereiro));
+		Atendimento novoAtendimento = new Atendimento(listCliente.get(idCliente), listCabelereiro.get(idCabelereiro));
 		
 		System.out.print("\nQUANTOS SERVICOS SERAO REALIZADOS:");
 		int quantServicos = Integer.parseInt(inputPrincipal.nextLine());
@@ -142,7 +172,7 @@ public class Main {
 		String nome = inputPrincipal.nextLine();
 		System.out.println("CPF DO CLIENTE:");
 		String cpf = inputPrincipal.nextLine();
-		listClientes.add(new Cliente(nome, cpf));
+		listCliente.add(new Cliente(nome, cpf));
 	}
 
 }

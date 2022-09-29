@@ -15,18 +15,6 @@ public class Agendamento {
 		this.cabelereiro = cabelereiro;
 		this.data = Calendar.getInstance();
 	}
-	
-	
-
-	public Agendamento(Cliente cliente, int hora, int minuto, Cabelereiro cabelereiro) {
-		super();
-		this.cliente = cliente;
-		this.hora = hora;
-		this.minuto = minuto;
-		this.cabelereiro = cabelereiro;
-	}
-
-
 
 	public int getId() {
 		return id;
@@ -34,22 +22,6 @@ public class Agendamento {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getHora() {
-		return hora;
-	}
-
-	public void setHora(int hora) {
-		this.hora = hora;
-	}
-
-	public int getMinuto() {
-		return minuto;
-	}
-
-	public void setMinuto(int minuto) {
-		this.minuto = minuto;
 	}
 
 	public Calendar getData() {
