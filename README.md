@@ -1,1 +1,1 @@
-The developed system is intended to evaluate goalkeepers for the 2022 Football World Cup.
+Sistema de Cadastro para Salão de Beleza, conforme requisitos pedidos na Prova 01 de Técnicas de Programação em Java.
