@@ -1,6 +1,7 @@
 package salao;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Main {
@@ -118,6 +119,46 @@ public class Main {
 			}
 		}
 		return name;
+	}
+	
+	// PART B: QUESTION 05
+	public static Cabelereiro cabelereiroMostActive() {
+		
+		Cabelereiro cabelereiroMostActive = null;
+		int theMostActivity = -1;
+		int activityCount;
+		for(Cabelereiro cabelereiro : listCabelereiro) {
+			activityCount = 0;
+			for(Agendamento agendamento : listAgendamento) {
+				if(agendamento.getCabelereiro().getId() == cabelereiro.getId()) {
+					activityCount++;
+				}
+			}
+			
+			if (activityCount > theMostActivity) {
+				theMostActivity = activityCount;
+				cabelereiroMostActive = cabelereiro;
+			}
+		}
+		
+		return cabelereiroMostActive;
+	}
+	
+	// PART B: QUESTION 06
+	public static ArrayList<Servico> getServicesByDate(int day, int hour, int minute) {
+		Calendar dataTal;
+		dataTal = Calendar.getInstance();
+		dataTal.set(22, 30, 25);
+		
+		ArrayList<Servico> servicosOfTheDay = new ArrayList<Servico>();
+		for(Agendamento agendamento : listAgendamento) {
+			Calendar dataDoAgendamento = agendamento.getData();
+			if(dataDoAgendamento.DAY_OF_MONTH == day && dataDoAgendamento.HOUR_OF_DAY == hour && dataDoAgendamento.MINUTE == minute) {
+				
+			}
+		}
+		
+		return null;
 	}
 
 	public static void menuPrincipal() {
